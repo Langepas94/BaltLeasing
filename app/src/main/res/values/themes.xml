@@ -1,5 +1,6 @@
 <resources>
 
-    <style name="Theme.BaltLeasing" parent="Theme.Material3.DayNight" />
-
+    <style name="Theme.BaltLeasing" parent="Theme.Material3.DayNight">
+    <item name="android:navigationBarColor">@color/indigo</item>
+    </style>
 </resources>
