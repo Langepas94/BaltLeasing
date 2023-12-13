@@ -22,12 +22,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val navController = this.findNavController(R.id.nav_host_fragment)
         binding.mainNavBar.setupWithNavController(navController)
-        setupActionBar()
-    }
-
-
-
-    fun setupActionBar() {
 
     }
+
+
+
+
 }
