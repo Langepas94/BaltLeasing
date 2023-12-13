@@ -6,14 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CatalogFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CatalogFragment : Fragment() {
-    // TODO: Rename and change types of parameters
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
