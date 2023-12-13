@@ -16,9 +16,9 @@
         tools:layout="@layout/fragment_catalog" />
     <fragment
         android:id="@+id/uslugiFragment"
-        android:name="com.example.baltleasing.UslugiFragment"
+        android:name="com.example.baltleasing.ServicesFragment"
         android:label="fragment_uslugi"
-        tools:layout="@layout/fragment_uslugi" />
+        tools:layout="@layout/fragment_services" />
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.baltleasing.HelpFragment"
