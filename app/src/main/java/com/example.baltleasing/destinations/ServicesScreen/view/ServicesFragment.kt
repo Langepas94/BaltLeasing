@@ -2,10 +2,12 @@ package com.example.baltleasing
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -23,7 +25,6 @@ class ServicesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentServicesBinding.inflate(layoutInflater, container, false)
         return  binding.root
     }
@@ -36,11 +37,43 @@ class ServicesFragment : Fragment() {
     private fun viewModelBind() {
 
         viewModel.data.observe(activity as LifecycleOwner) {
-            binding.insuranceBlock.mainTextView.text = it.strah.mainText
-            binding.insuranceBlock.subText.text = it.strah.subText
-            binding.insuranceBlock.imageView2.setImageResource(it.strah.image.toInt())
+            binding.longStrahBlock.mainTextView.text = it.strah.mainText
+            binding.longStrahBlock.subText.text = it.strah.subText
+            binding.longStrahBlock.imageViewLong.setImageResource(it.strah.image.toInt())
 
+            binding.squareSputnikBLock.mainText.text = it.sputnik.mainText
+            binding.squareSputnikBLock.subSquareText.text = it.sputnik.subText
+            binding.squareSputnikBLock.squareImage.setImageResource(it.sputnik.image.toInt())
 
+            binding.guaranteeSmall.textView.text = it.garant.mainText
+            binding.guaranteeSmall.smallImageView.setImageResource(it.garant.image.toInt())
+            changeGravityForGuarantee()
+
+            binding.fuelProgramsSmall.textView.text = it.toplivo.mainText
+            binding.fuelProgramsSmall.smallImageView.setImageResource(it.toplivo.image.toInt())
+
+            binding.mapsLongBlock.mainTextView.text = it.helpCards.mainText
+            binding.mapsLongBlock.subText.text = it.helpCards.subText
+            binding.mapsLongBlock.imageViewLong.setImageResource(it.helpCards.image.toInt())
+
+            binding.monitoringSmall.textView.text = it.monitoring.mainText
+
+            binding.wheelsSmall.textView.text = it.shinka.mainText
+            binding.wheelsSmall.smallImageView.setImageResource(it.shinka.image.toInt())
+
+            binding.squareShippingBlock.mainText.text = it.dostavka.mainText
+            binding.squareShippingBlock.squareImage.setImageResource(it.dostavka.image.toInt())
+
+            binding.sodeistvieLongBlock.mainTextView.text = it.sodeistvie.mainText
+            binding.sodeistvieLongBlock.imageViewLong.setImageResource(it.sodeistvie.image.toInt())
         }
+    }
+
+    // колхоз, но там картинка обрезана снизу и всего в одном месте из всех подобных ячеек картинка должна быть внизу, вышел так из положения
+    private fun changeGravityForGuarantee() {
+        val image = binding.guaranteeSmall.smallImageView
+        val params = image.layoutParams as LinearLayout.LayoutParams
+        params.gravity = Gravity.BOTTOM
+        image.layoutParams = params
     }
 }

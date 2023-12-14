@@ -3,9 +3,7 @@ package com.example.baltleasing.destinations.ServicesScreen.viewModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.baltleasing.R
 import com.example.baltleasing.data.MockServicesScreen
-import com.example.baltleasing.data.ServiceDataModel
 import com.example.baltleasing.data.ServiceScreenModel
 
 class ServicesViewModel: ViewModel() {
@@ -13,6 +11,4 @@ class ServicesViewModel: ViewModel() {
     fun getData() {
     data.value = MockServicesScreen.model
     }
-
-
 }

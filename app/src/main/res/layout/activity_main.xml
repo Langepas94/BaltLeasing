@@ -40,6 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:itemBackground="@android:color/transparent"
             app:menu="@menu/main_tab_menu" />
 
         <androidx.appcompat.widget.Toolbar
