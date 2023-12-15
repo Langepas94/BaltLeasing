@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.example.baltleasing.data.ServiceScreenModel
@@ -17,7 +18,7 @@ import com.example.baltleasing.destinations.ServicesScreen.viewModel.ServicesVie
 
 class ServicesFragment : Fragment() {
 
-    private val viewModel: ServicesViewModel by activityViewModels()
+    private val viewModel: ServicesViewModel by viewModels()
 
     private lateinit var binding: FragmentServicesBinding
 

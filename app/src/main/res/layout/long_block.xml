@@ -36,7 +36,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter"
             android:textColor="@color/secondaryText"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:text="@tools:sample/lorem" />
     </LinearLayout>
 
     <ImageView
