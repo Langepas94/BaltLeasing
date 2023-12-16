@@ -5,7 +5,8 @@ import com.example.baltleasing.R
 data class ServiceDataModel(
     val mainText: String,
     val subText: String = "",
-    val image: String = ""
+    val image: String = "",
+    val type: Int
 )
 
 data class ServiceScreenModel (
