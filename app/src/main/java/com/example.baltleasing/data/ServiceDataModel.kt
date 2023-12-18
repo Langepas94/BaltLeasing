@@ -2,10 +2,15 @@ package com.example.baltleasing.data
 
 import com.example.baltleasing.R
 
+enum class ServiceViewTypes {
+    
+}
+
 data class ServiceDataModel(
     val mainText: String,
     val subText: String = "",
-    val image: String = ""
+    val image: String = "",
+    val type: Int
 )
 
 data class ServiceScreenModel (
