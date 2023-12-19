@@ -1,19 +1,22 @@
-package com.example.baltleasing.destinations.ServicesScreen.adapter
+package com.example.baltleasing.destinations.servicesScreen.adapter
 
+import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.baltleasing.data.ServiceDataModel
 import com.example.baltleasing.databinding.LongBlockBinding
 import com.example.baltleasing.databinding.SmallBlockBinding
 import com.example.baltleasing.databinding.SquareBlockBinding
-import com.example.baltleasing.destinations.ServicesScreen.view.LongServiceViewHolder
-import com.example.baltleasing.destinations.ServicesScreen.view.SmallServiceViewHolder
-import com.example.baltleasing.destinations.ServicesScreen.view.SquareServiceViewHolder
-import com.example.baltleasing.destinations.ServicesScreen.view.ServiceViewHolder
+import com.example.baltleasing.destinations.servicesScreen.view.LongServiceViewHolder
+import com.example.baltleasing.destinations.servicesScreen.view.SmallServiceViewHolder
+import com.example.baltleasing.destinations.servicesScreen.view.SquareServiceViewHolder
+import com.example.baltleasing.destinations.servicesScreen.view.ServiceViewHolder
 
-class ServiceRecyclerAdapter(private val itemList: Array<ServiceDataModel>, private val screenWidth: Int): RecyclerView.Adapter<ServiceViewHolder<*>>() {
+class ServiceRecyclerAdapter(private val itemList: Array<ServiceDataModel>, private val screen: DisplayMetrics): ListAdapter<ServiceDataModel,ServiceViewHolder<*>>(DiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder<*> {
         return when (viewType) {
             0 -> LongServiceViewHolder(
@@ -26,6 +29,16 @@ class ServiceRecyclerAdapter(private val itemList: Array<ServiceDataModel>, priv
                 SmallBlockBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             )
             else -> throw IllegalArgumentException("View type not found")
+        }
+    }
+
+    private class DiffCallback: DiffUtil.ItemCallback<ServiceDataModel>() {
+        override fun areItemsTheSame(oldItem: ServiceDataModel, newItem: ServiceDataModel): Boolean {
+            if (oldItem != newItem) return false
+            return oldItem == newItem
+        }
+        override fun areContentsTheSame(oldItem: ServiceDataModel, newItem: ServiceDataModel): Boolean {
+            return oldItem == newItem
         }
     }
 
@@ -55,19 +68,18 @@ class ServiceRecyclerAdapter(private val itemList: Array<ServiceDataModel>, priv
         }
     }
 
-    fun layoutSetup(holder: ServiceViewHolder<*>): StaggeredGridLayoutManager.LayoutParams {
+    private fun layoutSetup(holder: ServiceViewHolder<*>): StaggeredGridLayoutManager.LayoutParams {
         val layoutParams = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
-        val margins = 32
-        val betweenMargin = 12
+        val margins = dpToPx(16f)
         when(holder) {
             is SquareServiceViewHolder -> {
-                layoutParams.width = (screenWidth / 2) - margins - betweenMargin
-                layoutParams.height = (layoutParams.width)
+                layoutParams.width = (screen.widthPixels / 2) - margins
+                layoutParams.height = (screen.widthPixels / 2)
                 return  layoutParams
             }
             is SmallServiceViewHolder -> {
-                layoutParams.width = (screenWidth / 2) - margins - betweenMargin
-                layoutParams.height = (layoutParams.width / 2)
+                layoutParams.width = (screen.widthPixels / 2) - margins
+                layoutParams.height = (screen.widthPixels / 2) / 2
                 return  layoutParams
             }
             is LongServiceViewHolder -> {
@@ -79,5 +91,9 @@ class ServiceRecyclerAdapter(private val itemList: Array<ServiceDataModel>, priv
                 return layoutParams
             }
         }
+    }
+
+    private fun dpToPx(dp: Float): Int {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, screen).toInt()
     }
 }

@@ -1,4 +1,4 @@
-package com.example.baltleasing.destinations.MainScreen.viewModel
+package com.example.baltleasing.destinations.mainScreen.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

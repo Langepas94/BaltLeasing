@@ -1,4 +1,4 @@
-package com.example.baltleasing.destinations.ServicesScreen.view
+package com.example.baltleasing.destinations.servicesScreen.view
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding

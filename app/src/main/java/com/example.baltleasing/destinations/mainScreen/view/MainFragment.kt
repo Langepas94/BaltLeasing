@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.example.baltleasing.databinding.FragmentMainBinding
-import com.example.baltleasing.destinations.MainScreen.viewModel.MainViewModel
-import kotlinx.coroutines.launch
+import com.example.baltleasing.destinations.mainScreen.viewModel.MainViewModel
 
 class MainFragment : Fragment() {
 
